@@ -5,6 +5,8 @@ from . import details
 from . import family
 from . import offers
 from . import subscription
+from . import vaults
+from . import vault
 
 def setup(kard):
     kard.bankAccount = bankAccount.KardBank(kard)
@@ -14,5 +16,7 @@ def setup(kard):
     kard.details = details.KardAccount(kard)
     kard.family = family.KardFamily(kard)
     kard.subscription = subscription.KardSubscription(kard)
-    
+    kard.vaults = vaults.KardVaults(kard)
+    kard.vaults.vault = vault.KardVault(kard)
+
     return kard

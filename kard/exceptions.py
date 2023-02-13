@@ -18,3 +18,6 @@ class InsufficientFundsException(Exception):
 
 class InvalidValueException(Exception):
     pass
+
+class VaultNotFoundException(Exception):
+    pass
