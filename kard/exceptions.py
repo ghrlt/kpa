@@ -12,3 +12,9 @@ class GraphQLException(Exception):
 
 class CardNotFoundException(Exception):
     pass
+
+class InsufficientFundsException(Exception):
+    pass
+
+class InvalidValueException(Exception):
+    pass
