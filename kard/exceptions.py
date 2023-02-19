@@ -21,3 +21,6 @@ class InvalidValueException(Exception):
 
 class VaultNotFoundException(Exception):
     pass
+
+class ContactNotFoundError(Exception):
+    pass

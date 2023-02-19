@@ -1,6 +1,7 @@
 from . import bankAccount
 from . import cards
 from . import cashback
+from . import contacts
 from . import details
 from . import family
 from . import kyc
@@ -15,6 +16,7 @@ def setup(kard):
     kard.cards = cards.KardCards(kard)
     kard.cashback = cashback.KardCashback(kard)
     kard.cashback.offers = offers.KardOffers(kard)
+    kard.contacts = contacts.KardContacts(kard)
     kard.details = details.KardAccount(kard)
     kard.family = family.KardFamily(kard)
     kard.kyc = kyc.KardKYC(kard)
