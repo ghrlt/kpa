@@ -24,3 +24,9 @@ class VaultNotFoundException(Exception):
 
 class ContactNotFoundError(Exception):
     pass
+
+class BeneficiaryNotFoundError(Exception):
+    pass
+
+class WireTransferInvalidAmount(Exception):
+    pass

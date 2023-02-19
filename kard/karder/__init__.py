@@ -1,4 +1,6 @@
 from . import bankAccount
+from . import beneficiaries
+from . import beneficiary
 from . import cards
 from . import cashback
 from . import contacts
@@ -13,6 +15,8 @@ from . import vault
 
 def setup(kard):
     kard.bankAccount = bankAccount.KardBank(kard)
+    kard.beneficiaries = beneficiaries.KardBeneficiaries(kard)
+    kard.beneficiaries.beneficiary = beneficiary.KardBeneficiary(kard)
     kard.cards = cards.KardCards(kard)
     kard.cashback = cashback.KardCashback(kard)
     kard.cashback.offers = offers.KardOffers(kard)
