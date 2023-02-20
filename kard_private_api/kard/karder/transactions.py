@@ -67,12 +67,12 @@ class KardTransactions:
         lastPageInfo = {}
 
         x = self.get()
-        transactions.append(x['nodes'])
+        transactions += x['nodes']
         lastPageInfo = x['pageInfo']
 
         while lastPageInfo['hasNextPage']:
             x = self.get(after=lastPageInfo['endCursor'])
-            transactions.append(x['nodes'])
+            transactions += x['nodes']
             lastPageInfo = x['pageInfo']
 
         return transactions

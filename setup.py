@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setuptools.setup(
     name="pyKard",
-    version="3.0.0",
+    version="3.0.2",
     author="Gaëtan Hérault",
     author_email="dev@ghr.lt",
     description="Python wrapper for Kard's private API",
@@ -25,6 +25,6 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
-    packages=["kard_private_api"],
+    packages=["kard_private_api", "kard_private_api.kard", "kard_private_api.kard.karder"],
     python_requires=">=3.6",
 )
