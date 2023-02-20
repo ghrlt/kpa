@@ -4,20 +4,26 @@ import json
 class KardSettings:
     def __init__(self, phone_number: str):
         self.phone_number = phone_number
-        self.file = "%s-settings.json" % self.phone_number
+        self.file = ".kard-login_%s-settings.json" % self.phone_number
+
+
+        if os.name == 'nt':
+            self.file_path = os.path.join('C:\\', 'Users', os.getlogin(), self.file)
+        else:
+            self.file_path = os.path.join(os.path.expanduser('~'), self.file)
 
 
     def getSettings(self):
-        if not os.path.exists(self.file):
+        if not os.path.exists(self.file_path):
             self.saveSettings({
                 "phoneNumber": self.phone_number
             })
 
-        with open(self.file, 'r', encoding='utf-8') as f:
+        with open(self.file_path, 'r', encoding='utf-8') as f:
             return json.load(f)
 
     def saveSettings(self, settings: dict):
-        with open(self.file, 'w', encoding='utf-8') as f:
+        with open(self.file_path, 'w', encoding='utf-8') as f:
             json.dump(settings, f, ensure_ascii=False, indent=2)
 
 

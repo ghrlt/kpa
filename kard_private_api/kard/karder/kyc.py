@@ -1,5 +1,5 @@
-from __main__ import Kard
-import kard
+from ...app import Kard
+from ... import kard
 
 class KardKYC:
     def __init__(self, kard: Kard):

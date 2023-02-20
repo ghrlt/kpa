@@ -1,5 +1,5 @@
-from __main__ import Kard
-import kard
+from ...app import Kard
+from ... import kard
 
 class KardBank:
     def __init__(self, kard: Kard):
@@ -166,4 +166,26 @@ class KardBank:
             raise kard.exceptions.GraphQLException('Expected "me.bankAccount.createdAt" to be present. Got: ' + str(response))
         
         return response['me']['bankAccount']['createdAt']
+
+
+    def sendMoneyToUser(self, userId: str, amount: float, currency: str='EUR', reason: str=''):
+        query = "mutation androidSendMoney($input: SendMoneyInput!) { sendMoney(input: $input) { errors { path message } } }"
+        variables = {
+            "input": {
+                "internalUsersIds": [userId],
+                "externalUsers": [],
+                "amount": {"value": amount, "currency": currency},
+                "reason": reason
+            }
+		}
+        extensions = {}
+
+        response = self.app.graphql.request(query, variables, extensions)
+        if not response.get('sendMoney'):
+            raise kard.exceptions.GraphQLException('Expected "sendMoney" to be present. Got: ' + str(response))
+        
+        if response['sendMoney'].get('errors'):
+            raise kard.exceptions.GraphQLException('Expected "sendMoney.errors" to be empty. Got: ' + str(response))
+
+        return True
 

@@ -10,6 +10,7 @@ from . import kyc
 from . import notifications
 from . import offers
 from . import subscription
+from . import transactions
 from . import topupCards
 from . import topupCard
 from . import vaults
@@ -28,6 +29,7 @@ def setup(kard):
     kard.kyc = kyc.KardKYC(kard)
     kard.notifications = notifications.KardNotifications(kard)
     kard.subscription = subscription.KardSubscription(kard)
+    kard.transactions = transactions.KardTransactions(kard)
     kard.topupCards = topupCards.KardTopupCards(kard)
     kard.topupCards.topupCard = topupCard.KardTopupCard(kard)
     kard.vaults = vaults.KardVaults(kard)

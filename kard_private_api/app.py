@@ -1,8 +1,8 @@
 import os
 
-import graphql
-import utils
-import settings
+from . import graphql
+from . import utils
+from . import settings
 
 
 class Kard:
@@ -121,13 +121,4 @@ class Kard:
                     raise kard.exceptions.InvalidPasscodeError("Invalid passcode %s" % passcode)
 
 
-if __name__ == "__main__":
-    import kard
-
-    from dotenv import load_dotenv
-    load_dotenv()
-
-    myKard = Kard(os.getenv('PHONE_NUMBER'))
-    myKard.authenticate(forceApiAuth=False)
-    print( myKard.karder.details.email )
-    # print( myKard.karder.family.getParents() )
+from . import kard
