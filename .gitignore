@@ -3,3 +3,6 @@ __pycache__
 
 *.env
 -.env.example
+
+dist/
+pyKard.egg-info/

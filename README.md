@@ -6,6 +6,7 @@ Python wrapper of Kard Private Api
 
 Made with the help of the awesome open-source tool [HTTP Toolkit](https://httptoolkit.tech/) for trafic sniffing ❤️
 
+This project is a refactored version of [kard-private-api](https://github.com/ghrlt/kard-private-api)
 
 ## Installation
 `pip install pyKard`
